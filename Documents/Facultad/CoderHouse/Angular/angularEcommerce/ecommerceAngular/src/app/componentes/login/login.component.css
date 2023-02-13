@@ -1,0 +1,15 @@
+.formularioIngreso{
+  padding: 5vw;
+}
+.titulo{
+    margin-bottom: 3vw;
+}
+.inputMedida{
+    width: 50%;
+}
+.resetBtn{
+  margin-left: 2vw;
+}
+.invalido{
+  color: rgb(255, 0, 0);
+}

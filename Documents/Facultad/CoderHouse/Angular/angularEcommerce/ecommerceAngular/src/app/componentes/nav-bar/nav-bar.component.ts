@@ -1,4 +1,3 @@
-import { emitDistinctChangesOnlyDefaultValue } from '@angular/compiler';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,11 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent {
- numero:number=20;
- constructor(){
-    
- }
- Hola(){
-      console.log("hola");
-  }
+
 }
