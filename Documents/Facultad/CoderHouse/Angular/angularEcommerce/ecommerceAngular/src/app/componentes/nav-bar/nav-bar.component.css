@@ -1,8 +1,13 @@
 .bgGrey{
-    background-color:#D0D3D4 !important;
+    background-color: rgb(68, 68, 184);
 }
 .center{
     text-align: center;
     color: blue;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: 5vw;
+    color: white;
+}
+.navEnd{
+    margin-left: 58vw;
 }

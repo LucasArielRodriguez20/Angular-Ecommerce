@@ -1,0 +1,33 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Crear Producto</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form [formGroup]="formulario" action="">
+            <div class="row">
+                <label for="">nombre:</label>
+                <input type="text" placeholder="Nombre" formControlName="nombre">
+            </div>
+            <div class="row d-flex flex-wrap">
+                <label for="precio">precio:</label>
+                <input type="number"  placeholder="Precio" formControlName="precio">
+            </div>
+            <div class="row">
+                <label for="">descripcion:</label>
+                <input type="text" placeholder="Descripción" formControlName="descripcion">
+            </div>
+            <div class="row">
+                <label for="">departamento:</label>
+                <input type="text" placeholder="Departamento" formControlName="departamento">
+            </div>
+            <div class="row">
+                <label for="">imagen:</label>
+                <input type="text" placeholder="Imagen" formControlName="imagen">
+            </div>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-flat-button (click)="guardar()">Guardar</button>
+        <button mat-flat-button (click)="cancelar()">Cancelar</button>
+    </mat-card-actions>
+</mat-card>

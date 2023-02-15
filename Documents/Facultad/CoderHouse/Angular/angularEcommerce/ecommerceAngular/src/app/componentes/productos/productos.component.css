@@ -1,5 +1,5 @@
 .productosCambios{
-    /* width: 20vw; */
+    width: 20vw;
     margin: 5vw;
 }
 .productosImagenes{
@@ -10,4 +10,14 @@
 .productoGrid{
     width: 20vw;
     height: 5vw;
+}
+.tituloRevision{
+    font-size: 3vw;
+    margin-left: 4vw;
+    margin-top: 4vw;
+}
+.btnCrear{
+    display: flex;
+    margin-bottom: 4vw;
+    margin-left: 80vw;
 }
