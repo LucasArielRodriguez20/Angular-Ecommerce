@@ -23,9 +23,7 @@ export class EditarProductoComponent {
       })
   }
   guardar(){
-    var producto:Producto=this.formulario.value;
-    this.productosData.crearProducto(producto);
-    console.log(producto);
+    this.productosData.crearProducto(this.formulario.value);
   }
   cancelar(){
   }

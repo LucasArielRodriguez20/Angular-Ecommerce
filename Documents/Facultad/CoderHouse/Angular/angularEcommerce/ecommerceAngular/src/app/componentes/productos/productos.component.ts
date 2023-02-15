@@ -3,7 +3,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { Producto } from 'src/app/interfaces/producto';
 import { EditarProductoComponent } from '../editar-producto/editar-producto.component';
 import { CrearProductoComponent } from '../crear-producto/crear-producto.component';
-import { Pipe } from '@angular/core';
 import { ServicioTrapasoService } from 'src/app/servicios/servicio-trapaso.service';
 
 @Component({
@@ -18,7 +17,7 @@ export class ProductosComponent implements OnInit {
   constructor(private dialog :MatDialog,private dialogEmpty :MatDialog,private productosData:ServicioTrapasoService){
   }
   ngOnInit(): void {
-    this.productosData.obtenerProductos().then((p:Producto[])=>{this.listaDeProductos=p}).catch((error :any)=>{alert("error al obtener los productos")});
+    this.productosData.obtenerProductosObsv().subscribe((p:Producto[])=>{this.listaDeProductos=p})
   }
   comprar(item:Producto){
     this.carritoCompra.push(item);
@@ -36,6 +35,6 @@ export class ProductosComponent implements OnInit {
     const dialog2 = this.dialogEmpty.open(CrearProductoComponent);
   }
   crearProducto(){
-    this.productosData.obtenerProductos().then((p:Producto[])=>{this.listaDeProductos=p}).catch((error :any)=>{alert("error al obtener los productos")});
+    this.productosData.obtenerProductosObsv().subscribe((p:Producto[])=>{this.listaDeProductos=p});
   }
 }

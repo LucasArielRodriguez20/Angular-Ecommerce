@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ProductosComponent } from '../componentes/productos/productos.component';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { Producto } from '../interfaces/producto';
 
 @Injectable({
@@ -16,13 +16,7 @@ export class ServicioTrapasoService {
   {nombre:'Laysx400g',descripcion:'Papas Fritasx400g',precio:500,departamento:'Frituras',imagen:'./imagenes/ArvejasInca.webp'}
 ];
   constructor() { }
-  /* obtenerProductos():Producto[]{
-    return this.listaDeProductos;
-  } */
- /*  ngOnInit():void{
-
-  } */
-  obtenerProductos():Promise<Producto[]>{
+ /*  obtenerProductos():Promise<Producto[]>{
     return new Promise((resolve, reject)=>{
       if(this.listaDeProductos.length>0){
           resolve(this.listaDeProductos);
@@ -30,7 +24,7 @@ export class ServicioTrapasoService {
         reject([]);
       }
     })
-  }
+  } */
   eliminar(item:Producto){
     const listaAux = this.listaDeProductos.filter(p=>p!=item);
     this.listaDeProductos=listaAux;
@@ -38,6 +32,9 @@ export class ServicioTrapasoService {
   crearProducto(item:Producto){
     this.listaDeProductos.push(item);
     //this.controladorProducto.crearProducto();
-    console.log(this.listaDeProductos)
+   this.obtenerProductosObsv();
+  }
+  obtenerProductosObsv():Observable<Producto[]>{
+    return new Observable<Producto[]>((suscriptor)=>{suscriptor.next(this.listaDeProductos)});
   }
 }
