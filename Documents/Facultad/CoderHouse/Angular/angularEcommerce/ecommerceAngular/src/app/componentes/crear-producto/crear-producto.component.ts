@@ -21,9 +21,7 @@ export class CrearProductoComponent {
       })
   }
   guardar(){
-    var producto:Producto=this.formulario.value;
-    this.productosData.crearProducto(producto);
-    console.log(producto);
+    this.productosData.crearProducto(this.formulario.value);
   }
   cancelar(){
 

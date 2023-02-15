@@ -8,7 +8,7 @@
     </mat-form-field>
 </div>
 <div class="container text-center d-flex flex-wrap">
-    <div class="row productosCambios" *ngFor="let producto of listaDeProductos | pipeFiltro:filtro">
+    <div class="row productosCambios" *ngFor="let producto of listaProductosObs | async ">
       <div class="col">
         <mat-card>
             <img mat-card-image class="productosImagenes" alt="{{producto.descripcion}}">
@@ -29,4 +29,6 @@
     </div>
 </div>
 
-<button mat-raised-button color="accent" class="btnCrear" (click)="crearProductoDialog()"> Agregar Producto</button>
+<button mat-raised-button color="accent" class="btnCrear" (click)="crearProductoDialog()"> Agregar Producto</button> 
+
+<!-- <h2 class="tituloRevision"> {{ listaProductosObs | async| json<}} </h2> -->

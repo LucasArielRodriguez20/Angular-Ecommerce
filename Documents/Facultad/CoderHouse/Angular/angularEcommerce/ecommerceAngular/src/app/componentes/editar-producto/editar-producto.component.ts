@@ -1,9 +1,9 @@
-import { DIALOG_DATA } from '@angular/cdk/dialog';
 import { Component, Inject } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
 import { Producto } from 'src/app/interfaces/producto';
 import { ServicioTrapasoService } from 'src/app/servicios/servicio-trapaso.service';
+import { ProductosComponent } from '../productos/productos.component';
 
 @Component({
   selector: 'app-editar-producto',
@@ -23,7 +23,9 @@ export class EditarProductoComponent {
       })
   }
   guardar(){
+    this.productosData.eliminar(this.data);
     this.productosData.crearProducto(this.formulario.value);
+    console.log(this.productosData);
   }
   cancelar(){
   }
