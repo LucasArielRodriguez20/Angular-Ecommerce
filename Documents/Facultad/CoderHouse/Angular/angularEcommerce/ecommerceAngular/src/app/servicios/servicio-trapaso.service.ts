@@ -6,7 +6,7 @@ import { Producto } from '../interfaces/producto';
   providedIn: 'root'
 })
 export class ServicioTrapasoService {
-  private observableProductos!: BehaviorSubject<Producto[]>;
+ private observableProductos!: BehaviorSubject<Producto[]>;
  private listaDeProductos:Producto[]=[
   {nombre:'jabon',descripcion:'artefacto de uso de limpieza',precio:60,departamento:'Limpieza',imagen:'./imagenes/jabonSeiseme.jpg'},
   {nombre:'Arvejas',descripcion:'arvejas envasada x200g',precio:20,departamento:'Enlatados',imagen:'./imagenes/ArvejasInca.webp'},
@@ -43,4 +43,5 @@ export class ServicioTrapasoService {
   obtenerProductosObsv():Observable<Producto[]>{
     return this.observableProductos.asObservable()
   }
+  obtenerLista(){return this.listaDeProductos}
 }

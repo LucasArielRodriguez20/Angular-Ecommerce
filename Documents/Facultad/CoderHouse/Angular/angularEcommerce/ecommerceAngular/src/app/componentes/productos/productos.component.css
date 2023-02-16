@@ -15,9 +15,21 @@
     font-size: 3vw;
     margin-left: 4vw;
     margin-top: 4vw;
+    margin-bottom: 6vw;
 }
 .btnCrear{
     display: flex;
     margin-bottom: 4vw;
     margin-left: 80vw;
+}
+.filtroProductos{
+    width: 80vw;
+    margin: auto;
+}
+.departamentosFiltro{
+    display: flex;
+    justify-content: flex-end;
+}
+.departamentosFiltroComboBox{
+    margin-right: 10vw;
 }
