@@ -1,33 +1,26 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule,Validators,FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ListaDeProductosComponent } from './componentes/lista-de-productos/lista-de-productos.component';
-import { ProductosComponent } from './componentes/productos/productos.component';
 import { NavBarComponent } from './componentes/nav-bar/nav-bar.component'
-import {LoginComponent} from './componentes/login/login.component'
+import {LoginComponent} from './usuarios/componentes/login/login.component'
 import { MaterialModule } from './modulos/material/material.module';
-import { EditarProductoComponent } from './componentes/editar-producto/editar-producto.component';
-import { CrearProductoComponent } from './componentes/crear-producto/crear-producto.component';
-import { PipeNuevoPipe } from './pipe/pipe-nuevo.pipe';
-import { DirectivaExpDirective } from './directivas/directiva-exp.directive';
-import { PipeFiltroPipe } from './pipe/pipe-filtro.pipe';
-import {ServicioTrapasoService } from './servicios/servicio-trapaso.service';
-/* import { AppRoutingModule } from './app-routing.module'; */
-
+import {ServicioTrapasoService } from './productos/servicios/servicio-trapaso.service';
+import { AppRoutingModule } from './app-routing.module';
+import { ComponenteNotFoundComponent } from './componentes/componente-not-found/componente-not-found.component';
+import { InicioComponent } from './componentes/inicio/inicio.component';
+import { FooterComponent } from './componentes/footer/footer.component';
+import { ProductosModule } from './productos/productos.module';
+import { UsuariosModule } from './usuarios/usuarios.module';
+import { ReactiveFormsModule} from '@angular/forms';
 @NgModule({
     declarations: [
         AppComponent,
-        ListaDeProductosComponent,
-        ProductosComponent,
         NavBarComponent,
         LoginComponent,
-        EditarProductoComponent,
-        CrearProductoComponent,
-        PipeNuevoPipe,
-        DirectivaExpDirective,
-        PipeFiltroPipe,
+        ComponenteNotFoundComponent,
+        InicioComponent,
+        FooterComponent,
     ],
     providers: [/* ServicioTrapasoService */ ],
     bootstrap: [AppComponent],
@@ -35,8 +28,10 @@ import {ServicioTrapasoService } from './servicios/servicio-trapaso.service';
         BrowserModule,
         BrowserAnimationsModule,
         MaterialModule,
+        AppRoutingModule,
+        ProductosModule,
         ReactiveFormsModule,
-        FormsModule,
+         UsuariosModule
     ]
 })
 export class AppModule { }

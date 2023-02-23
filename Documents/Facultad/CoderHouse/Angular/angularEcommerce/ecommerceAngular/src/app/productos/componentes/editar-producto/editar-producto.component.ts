@@ -1,9 +1,8 @@
 import { Component, Inject } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
-import { Producto } from 'src/app/interfaces/producto';
-import { ServicioTrapasoService } from 'src/app/servicios/servicio-trapaso.service';
-import { ProductosComponent } from '../productos/productos.component';
+import { Producto } from 'src/app/productos/interfaces/producto';
+import { ServicioTrapasoService } from 'src/app/productos/servicios/servicio-trapaso.service';
 
 @Component({
   selector: 'app-editar-producto',

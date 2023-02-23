@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Producto } from 'src/app/interfaces/producto';
+import { Producto } from 'src/app/productos/interfaces/producto';
 import { EditarProductoComponent } from '../editar-producto/editar-producto.component';
 import { CrearProductoComponent } from '../crear-producto/crear-producto.component';
-import { ServicioTrapasoService } from 'src/app/servicios/servicio-trapaso.service';
+import { ServicioTrapasoService } from 'src/app/productos/servicios/servicio-trapaso.service';
 import { filter, from, map, Observable, of, Subscription } from 'rxjs';
 import { ObserversModule } from '@angular/cdk/observers';
 import { FormControl } from '@angular/forms';

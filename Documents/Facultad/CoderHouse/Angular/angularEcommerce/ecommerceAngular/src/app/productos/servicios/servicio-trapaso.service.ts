@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { Producto } from '../interfaces/producto';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ServicioTrapasoService {
  private observableProductos!: BehaviorSubject<Producto[]>;
  private listaDeProductos:Producto[]=[

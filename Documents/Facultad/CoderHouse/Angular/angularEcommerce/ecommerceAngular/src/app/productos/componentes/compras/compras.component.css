@@ -1,0 +1,36 @@
+.productosCambios{
+    width: 20vw;
+    margin: 5vw;
+}
+.productosImagenes{
+    width: 5vw;
+    height: 5vw;
+    margin:auto;
+}
+.productoGrid{
+    width: 20vw;
+    height: 5vw;
+}
+.tituloRevision{
+    font-size: 3vw;
+    margin-left: 4vw;
+    margin-top: 4vw;
+    margin-bottom: 6vw;
+}
+.btnCrear{
+    display: flex;
+    margin-bottom: 4vw;
+    margin-left: 80vw;
+}
+.filtroProductos{
+    width: 80vw;
+    margin: auto;
+    margin-top: 1vw;
+}
+.departamentosFiltro{
+    display: flex;
+    justify-content: flex-end;
+}
+.departamentosFiltroComboBox{
+    margin-right: 10vw;
+}

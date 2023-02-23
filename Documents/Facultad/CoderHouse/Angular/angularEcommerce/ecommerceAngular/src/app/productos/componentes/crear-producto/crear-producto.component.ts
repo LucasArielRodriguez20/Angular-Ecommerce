@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialogRef} from '@angular/material/dialog';
-import { Producto } from 'src/app/interfaces/producto';
-import { ServicioTrapasoService } from 'src/app/servicios/servicio-trapaso.service';
+import { Producto } from 'src/app/productos/interfaces/producto';
+import { ServicioTrapasoService } from 'src/app/productos/servicios/servicio-trapaso.service';
 
 @Component({
   selector: 'app-crear-producto',

@@ -1,0 +1,31 @@
+<div class="row filtroProductos">
+    <mat-form-field >
+        <mat-label>
+            Filtrar Productos
+        </mat-label>
+        <input type="text" matInput [(ngModel)]="filtro" >
+    </mat-form-field>
+</div>
+<div class="container text-center d-flex flex-wrap">
+    <div class="row productosCambios" *ngFor="let producto of listaProductosObs | async ">
+      <div class="col">
+        <mat-card>
+            <img mat-card-image class="productosImagenes" alt="{{producto.descripcion}}">
+            <mat-card-header>
+                <mat-card-title>{{producto.nombre| titlecase}}</mat-card-title>
+                <mat-card-subtitle>{{producto.descripcion}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <p [appDirectivaExp]="producto.precio" >$ {{producto.precio|currency:'ARS':true:'1.1-2'}}</p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-flat-button (click)="comprar(producto)">Agregar</button>
+            </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+</div>
+<div>
+    <a><button mat-raised-button color="accent" class="btnCrear" routerLink="RevisionDeProductos"> Revisar Producto</button> </a>
+    
+</div>
