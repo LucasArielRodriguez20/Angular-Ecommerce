@@ -1,17 +1,5 @@
-<form class="formularioIngreso" [formGroup]="formulario" (ngSubmit)="crearUsuario()">
-    <h2 class="titulo">Crear una cuenta: </h2>
-    <div class="mb-3">
-        <label for="nombreUsuario" class="form-label">Nombre</label>
-        <input formControlName="nombre" placeholder="Fernando" type="text" class="form-control inputMedida" id="nombreUsuario" aria-describedby="emailHelp">
-        <div class="invalido"*ngIf="formulario.controls['nombre'].errors?.['required'] && formulario.controls['nombre'].dirty">Campo requerido</div>
-        <div class="invalido"*ngIf="formulario.controls['nombre'].errors?.['pattern']">formato de nombre</div>
-    </div>
-    <div class="mb-3">
-        <label for="apellidoUsuario" class="form-label" >Apellido</label>
-        <input formControlName="apellido"placeholder="Rodriguez" type="text" class="form-control inputMedida" id="apellidoUsuario" aria-describedby="emailHelp">
-        <div class="invalido"*ngIf="formulario.controls['apellido'].errors?.['required'] && formulario.controls['apellido'].dirty">Campo requerido</div>
-        <div class="invalido"*ngIf="formulario.controls['apellido'].errors?.['pattern']">formato de apellido</div>
-    </div>
+<form class="formularioIngreso" [formGroup]="formulario" (ngSubmit)="log()">
+    <h2 class="titulo">Ingrese de usuarios: </h2>
     <div class="mb-3">
       <label for="emailUsuario" class="form-label" >Email </label>
       <input formControlName="email" type="email" placeholder="Example@gmail.com" class="form-control inputMedida" id="emailUsuario" aria-describedby="emailHelp">
@@ -27,6 +15,7 @@
       <input formControlName="sesion" type="checkbox" class="form-check-input" id="sesionUsuario">
       <label class="form-check-label" for="sesionUsuario">Mantener Sesion</label>
     </div>
-    <button type="submit" class="btn btn-primary" [disabled]="formulario.invalid" >Registrarse</button>
+    <button type="submit" class="btn btn-primary" [disabled]="formulario.invalid" >Iniciar Sesion</button>
     <button type="reset" class="btn btn-primary resetBtn">Resetear</button>
+    <button type="" class="btn btn-primary resetBtn" routerLink="NuevaCuenta">Crear una Cuenta</button>
   </form>

@@ -5,15 +5,16 @@ import { ComponenteNotFoundComponent } from './componentes/componente-not-found/
 import { LoginComponent } from './usuarios/componentes/login/login.component';
 import { InicioComponent } from './componentes/inicio/inicio.component';
 import { ComprasComponent } from './productos/componentes/compras/compras.component';
+import { SesionGuard } from './core/guards/sesion.guard';
 
-const routes : Routes =[
-  {path:'Compras/RevisionDeProductos', component:ProductosComponent}, 
-  {path:'Compras', component:ComprasComponent},
-  {path:'MiCuenta', component:LoginComponent},
+const routes : Routes =[ 
+  {path:'productos',canLoad:[SesionGuard], canActivate:[SesionGuard],loadChildren:()=>import('./productos/productos.module').then((modulo)=>modulo.ProductosModule)},
+  {path:'usuarios', loadChildren:()=>import('./usuarios/usuarios.module').then((modulo)=>modulo.UsuariosModule)},
   {path:'inicio',component:InicioComponent},
   {path:'',redirectTo:'inicio', pathMatch:'full'},
   {path:'**', component:ComponenteNotFoundComponent},
 ];
+//loadChildren:()=>import('./productos/productos.module').then((modulo)=>modulo.ProductosModule)}
 //{path:'RevisionDeProductos', children:[{path:'RevisionDeProductos', component:ProductosComponent},]},ejemplo rutas hijas
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

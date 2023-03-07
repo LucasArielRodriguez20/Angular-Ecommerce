@@ -5,6 +5,10 @@
     <mat-card-content>
         <form [formGroup]="formulario" action="">
             <div class="row">
+                <label for="">id:</label>
+                <input type="text" placeholder="id" formControlName="id" readonly>
+            </div>
+            <div class="row">
                 <label for="">nombre:</label>
                 <input type="text" placeholder="Nombre" formControlName="nombre">
             </div>

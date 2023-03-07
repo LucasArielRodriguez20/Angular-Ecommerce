@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
+import { Route, Router } from '@angular/router';
 import { Producto } from 'src/app/productos/interfaces/producto';
 import { ServicioTrapasoService } from 'src/app/productos/servicios/servicio-trapaso.service';
 
@@ -12,8 +13,12 @@ import { ServicioTrapasoService } from 'src/app/productos/servicios/servicio-tra
 export class EditarProductoComponent {
   formulario: FormGroup;
   constructor(private ref :MatDialogRef<EditarProductoComponent>,
-    @Inject(MAT_DIALOG_DATA) public data:Producto,private productosData:ServicioTrapasoService){
+             @Inject(MAT_DIALOG_DATA) public data:Producto,
+              private productosData:ServicioTrapasoService,
+              private route:Router)
+  {
       this.formulario=new FormGroup({
+        id: new FormControl(data.id),
         nombre : new FormControl(data.nombre),
         descripcion : new FormControl(data.descripcion),
         precio : new FormControl(data.precio),
@@ -22,11 +27,11 @@ export class EditarProductoComponent {
       })
   }
   guardar(){
-    this.productosData.eliminar(this.data);
-    this.productosData.crearProducto(this.formulario.value);
-    console.log(this.productosData);
+    this.productosData.modificarProducto(this.formulario.value).subscribe(()=>{this.route.navigate(['productos/Compras'])});
+    this.ref.close();
   }
   cancelar(){
+    this.ref.close();
   }
 }
 

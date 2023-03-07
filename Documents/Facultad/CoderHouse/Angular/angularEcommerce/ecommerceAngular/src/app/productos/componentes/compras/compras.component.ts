@@ -3,6 +3,9 @@ import { Producto } from 'src/app/productos/interfaces/producto';
 import { ServicioTrapasoService } from 'src/app/productos/servicios/servicio-trapaso.service';
 import { filter, from, map, Observable, of, Subscription } from 'rxjs';
 import { FormControl } from '@angular/forms';
+import { UsuarioSesionService } from 'src/app/core/servicios/usuario-sesion.service';
+import { Sesion } from 'src/app/core/servicios/sesrio';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-compras',
@@ -11,24 +14,22 @@ import { FormControl } from '@angular/forms';
 })
 export class ComprasComponent {
   listaProductosObs!:Observable<Producto[]>
-  suscriptor!: Subscription;
-  filtro: string = '';
   listaDeProductos!:Producto[];
   carritoCompra:Producto[]=[];
+
+ /*  suscriptor!: Subscription;
+  filtro: string = '';
   departamentos = new FormControl('');
   departamentosLista!: string[];
+ */
 
+  constructor(private router :Router,
+              private productosData:ServicioTrapasoService,
+              private sesion :UsuarioSesionService
+     ){}
 
-  constructor(private productosData:ServicioTrapasoService){
-  }
   ngOnInit(): void {
-    this.suscriptor=this.productosData.obtenerProductosObsv().subscribe((p:Producto[])=>{this.listaDeProductos=p})
     this.listaProductosObs=this.productosData.obtenerProductosObsv();
-    this.listaProductosObs.subscribe((p:Producto[])=>{this.listaDeProductos=p});
-    this.departamentosLista= this.productosData.obtenerLista().map(p=>p.departamento);
-  }
-  ngOnDestroy(): void {
-    this.suscriptor.unsubscribe();
   }
 
   comprar(item:Producto){

@@ -10,28 +10,26 @@ import { AppRoutingModule } from './app-routing.module';
 import { ComponenteNotFoundComponent } from './componentes/componente-not-found/componente-not-found.component';
 import { InicioComponent } from './componentes/inicio/inicio.component';
 import { FooterComponent } from './componentes/footer/footer.component';
-import { ProductosModule } from './productos/productos.module';
 import { UsuariosModule } from './usuarios/usuarios.module';
 import { ReactiveFormsModule} from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
     declarations: [
         AppComponent,
         NavBarComponent,
-        LoginComponent,
         ComponenteNotFoundComponent,
         InicioComponent,
         FooterComponent,
     ],
-    providers: [/* ServicioTrapasoService */ ],
+    providers: [],
     bootstrap: [AppComponent],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
         MaterialModule,
         AppRoutingModule,
-        ProductosModule,
         ReactiveFormsModule,
-         UsuariosModule
+        HttpClientModule
     ]
 })
 export class AppModule { }

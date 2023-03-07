@@ -18,4 +18,12 @@ export class PipeFiltroPipe implements PipeTransform {
     }
   }
 }
+/* export class FiltroCursosPipe implements PipeTransform {
+
+  transform(cursos: Curso[], filtro: string): Curso[] {
+    console.log(filtro)
+    return cursos.filter((c) => {
+      return c.nombre.toLocaleLowerCase().includes(filtro.toLocaleLowerCase()) 
+    });
+  } */
 

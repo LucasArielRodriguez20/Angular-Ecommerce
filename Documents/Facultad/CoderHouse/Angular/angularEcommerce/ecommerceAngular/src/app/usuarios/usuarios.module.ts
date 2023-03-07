@@ -3,15 +3,22 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule,FormsModule,FormControl } from '@angular/forms';
 import { UsuariosRoutingModule } from './usuarios.-routing.module';
 import { ServiceUsuariosService } from './service-usuarios.service';
+import { MaterialModule } from '../modulos/material/material.module';
+import { LoginComponent } from './componentes/login/login.component';
+import { NuevaCuentaComponent } from './componentes/nueva-cuenta/nueva-cuenta.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    LoginComponent,
+    NuevaCuentaComponent
+  ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    UsuariosRoutingModule
+    UsuariosRoutingModule,
+    MaterialModule
   ],
   providers:[ServiceUsuariosService],
 

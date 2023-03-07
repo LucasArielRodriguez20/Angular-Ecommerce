@@ -1,45 +1,24 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { Observable } from 'rxjs';
+import { env } from 'src/enviroument/environment';
 import { Producto } from '../interfaces/producto';
 
 @Injectable()
 export class ServicioTrapasoService {
- private observableProductos!: BehaviorSubject<Producto[]>;
- private listaDeProductos:Producto[]=[
-  {nombre:'jabon',descripcion:'artefacto de uso de limpieza',precio:60,departamento:'Limpieza',imagen:'./imagenes/jabonSeiseme.jpg'},
-  {nombre:'Arvejas',descripcion:'arvejas envasada x200g',precio:20,departamento:'Enlatados',imagen:'./imagenes/ArvejasInca.webp'},
-  {nombre:'Laysx400g',descripcion:'Papas Fritasx400g',precio:500,departamento:'Frituras',imagen:'./imagenes/ArvejasInca.webp'},
-  {nombre:'Laysx400g',descripcion:'Papas Fritasx400g',precio:500,departamento:'Frituras',imagen:'./imagenes/ArvejasInca.webp'},
-  {nombre:'Laysx400g',descripcion:'Papas Fritasx400g',precio:500,departamento:'Frituras',imagen:'./imagenes/ArvejasInca.webp'},
-  {nombre:'Laysx400g',descripcion:'Papas Fritasx400g',precio:500,departamento:'Frituras',imagen:'./imagenes/ArvejasInca.webp'},
-  {nombre:'Laysx400g',descripcion:'Papas Fritasx400g',precio:500,departamento:'Frituras',imagen:'./imagenes/ArvejasInca.webp'}
-];
-  constructor() { this.observableProductos=new BehaviorSubject(this.listaDeProductos); }
- /*  obtenerProductos():Promise<Producto[]>{
-    return new Promise((resolve, reject)=>{
-      if(this.listaDeProductos.length>0){
-          resolve(this.listaDeProductos);
-      }else{
-        reject([]);
-      }
-    })
-  } */
-  eliminar(item:Producto){
-    const listaAux = this.listaDeProductos.filter(p=>p!=item);
-    this.listaDeProductos=listaAux;
-    this.observableProductos.next(this.listaDeProductos)
+  constructor(private http:HttpClient){}
+
+  eliminar(item:Producto):Observable<Producto>{
+    return this.http.delete<Producto>(`${env.apiUrl}/Productos/${item.id}`);
   }
-  crearProducto(item:Producto){
-    if(this.listaDeProductos.includes(item)){
-        alert("El Producto ya existe");
-    }
-    else{
-      this.listaDeProductos.push(item);
-      this.observableProductos.next(this.listaDeProductos);
-    }
+  crearProducto(item:Producto):Observable<Producto>{
+    return this.http.post<Producto>(`${env.apiUrl}/Productos`,item); 
   }
   obtenerProductosObsv():Observable<Producto[]>{
-    return this.observableProductos.asObservable()
+    return this.http.get<Producto[]>(`${env.apiUrl}/Productos`);
   }
-  obtenerLista(){return this.listaDeProductos}
+  modificarProducto(item:Producto):Observable<Producto>{
+    return this.http.put<Producto>(`${env.apiUrl}/Productos/${item.id}`,item);
+  }
+
 }
