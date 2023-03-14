@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+/* import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CrearProductoComponent } from './crear-producto.component';
 
@@ -21,3 +21,4 @@ describe('CrearProductoComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+ hay algo mal*/

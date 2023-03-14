@@ -22,5 +22,6 @@ export class NuevaCuentaComponent {
   crearUsuario(){
     console.log(this.formulario);
     alert("usuario Creado");
+    
   }
 }

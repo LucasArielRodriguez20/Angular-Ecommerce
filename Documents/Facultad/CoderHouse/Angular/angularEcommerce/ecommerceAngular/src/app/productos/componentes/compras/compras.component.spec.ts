@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+/* import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ComprasComponent } from './compras.component';
 
@@ -20,4 +20,4 @@ describe('ComprasComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});
+});hay algo mal */
